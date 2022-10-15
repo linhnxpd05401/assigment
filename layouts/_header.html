@@ -1,0 +1,59 @@
+<header class="header" ng-controller = "headerController" ng-init = "checkUser()"> 
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="header__nav navbar navbar-expand-lg col-sm-12">
+          <div class="row col-sm-12 flex--nonWrap">
+            <div class="header__nav-home col-sm-3">
+              <a class="header__nav-home-band navbar-brand" href="#/!">
+                <img src="./images/logos/header-logo.png" alt="" class="brand-logo" />
+                Training Online
+              </a>
+              <button class="header__nav-btn navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="header__nav-btn-icon fa-sharp fa-solid fa-bars"></i>
+              </button>
+            </div>
+            <div class="header__nav-menu collapse navbar-collapse col-sm-9" id="navbarNavDropdown">
+              <div class="row col-sm-12 flex--nonWrap">
+                <ul class="header__nav-menu-list navbar-nav col-sm-12">
+                  <li class="nav-item">
+                    <a class="nav-link active-item" href="#/!">Trang chủ<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!description">Giới thiệu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#!contact">Liên hệ</a>
+                  </li>
+                  <li class="nav-item" >
+                    <a class="nav-link" ng-click = "checkLogin()">Khoá học</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Hỏi đáp</a>
+                  </li> -->
+                  <li class="nav-item hoverdrop" >
+                    <a class="nav-link" href="#" ng-show = "!isLogin">
+                      Tài khoản
+                      <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <a class="nav-link login--success" href="#" ng-show = "isLogin" style="display: flex; align-items: center; color: #333;">
+                      <div class="login__avatar" style="background-image: url(./images/logos/{{currentUserInfo.avatar}});"></div>
+                      {{ currentUserInfo.fullname }}
+                    </a>
+                    <div class="hoverdrop-menu">
+                      <a class="hoverdrop-item" href="" data-toggle="modal" data-target="#modal-register" ng-show = "!isLogin">Đăng ký</a>
+                      <a class="hoverdrop-item" href="" data-toggle="modal" data-target="#modal-login" ng-show = "!isLogin">Đăng nhập</a>
+                      <a class="hoverdrop-item" href="" ng-click = "logout()" ng-show = "isLogin">Đăng xuất</a>
+                      <a class="hoverdrop-item" href="#!changePass/{{ currentUserInfo.id }}/{{ currentUserInfo.password }}" ng-show = "isLogin">Đổi mật khẩu</a>
+                      <a class="hoverdrop-item" href="#!updateAccount" ng-show = "isLogin">Cập nhật tài khoản</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>

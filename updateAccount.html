@@ -1,0 +1,95 @@
+<div class="section-updateAccount">
+  <div class="updateAccount__wrap container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="updateAccount__card shadow p-4 mb-5 bg-white">
+          <div class="updateAccount__card-header">
+            <i class="fa-regular fa-user"></i>
+            <h4 class="updateAcoount__card-heading">Cập nhật thông tin</h4>
+          </div>
+          <div class="updateAccount__card-body">
+            <div class="updateAccount__card-avatar">
+              <div ng-click = "showDropdown()" class="updateAccount__card-avatar-img" style="background-image: url('./images/logos/{{imgName}}');">
+                <span  class="d-block text-light text-center lh-1 pb-1" style="background-color: rgba(0,0,0,.5)"><i class="fa-solid fa-camera"></i></span>
+              </div>
+              <div class="updateAccount__card-avatar--edit dropdown-menu shadow-sm p-3 mb-5 bg-white" ng-class = "{'show' : show, 'hide' : !show}" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 82.4px, 0px);">
+                <label for="chooseFile" class="dropdown-item fw-normal" href="">
+                  Tải ảnh đại diện mới
+                </label>
+                <input file-model="myFile" type="file" id="chooseFile" hidden>
+                <a class="dropdown-item text-danger fw-normal" href="#">
+                  <i class="ai-trash fs-base me-2"></i>
+                  Xoá hình ảnh
+                </a>
+              </div>
+              <div class="updateAccount__card-avatar-text">
+                <span class="updateAccount__card-avatar-title">Ảnh đại diện</span>
+                <span class="updateAccount__card-avatar-subtitle">PNG hoặc JPG không rộng và cao quá 1000px</span>
+              </div>
+            </div>
+            <div class="updateAccount__card-form">
+              <form name="updateForm">
+                <div class="row">
+                  <div class="col-sm-6">
+                      <div class="form-group">
+                        <input ng-model = "firstName" class="form-control"  type="text" placeholder="{{ firstName }}" name="firstName" required>
+                      </div>
+                      <div class="form-group">
+                        <input ng-model = "email" type="email" name="email" class="form-control" ng-class="{'is-invalid': updateForm.email.$invalid && updateForm.email.$dirty, 'is-valid': updateForm.email.$valid}" id="exampleFormControlInput1" placeholder="{{ currentUserInfo.email }}" required>
+                        <p class="text-left" ng-class="{'invalid-feedback': updateForm.email.$invalid && updateForm.email.$dirty, 'is-valid': updateForm.email.$validupdateForm.email.$valid}" ng-show="updateForm.email.$invalid && updateForm.email.$dirty">Email sai định dạng</p>
+                      </div>
+                      <div class="form-group">
+                        <input name="birthday" ng-model = "birthday" class="form-control" type="text" placeholder="{{ currentUserInfo.birthday }}" required>
+                        <p class="text-left" ng-class="{'invalid-feedback': , 'is-valid': }" ng-if=""></p>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="form-group">
+                        <input ng-model = "lastName" class="form-control" type="text" placeholder="{{ lastName }}">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="phone" ng-pattern="regex" class="form-control" ng-class="{'is-invalid': updateForm.phone.$error.pattern, 'is-valid': updateForm.phone.$valid}" placeholder="{{ currentUserInfo.phone}}" required>
+                        <p class="text-left" ng-class="{'invalid-feedback': updateForm.phone.$error.pattern, 'is-valid': updateForm.phone.$valid}" ng-show="updateForm.phone.$error.pattern">Số điện thoại sai định dạng</p>
+                      </div>
+                      <div class="form-group">
+                        <input ng-model = "address" class="form-control" type="text" placeholder="{{ currentUserInfo.address}}">
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea ng-model = "notes" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="{{ currentUserInfo.note }}"></textarea>
+                      </div>
+                      <div class="updateAccount__form-btn-group form-group">
+                        <span class="updateAccount__form-label">Giới tính</span>
+                        <div class="updateAccount__form-check form-check">
+                          <input ng-model = "gender" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="nam" ng-required="!gender" >
+                          <label class="form-check-label" for="exampleRadios1">
+                            Nam
+                          </label>
+                        </div>
+                        <div class="updateAccount__form-check form-check">
+                          <input ng-model = "gender" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="nữ" ng-required="!gender">
+                          <label class="form-check-label" for="exampleRadios1">
+                            Nữ
+                          </label>
+                        </div>
+                        <div class="updateAccount__form-check form-check">
+                          <input ng-model = "gender" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="khác" ng-required="!gender">
+                          <label class="form-check-label" for="exampleRadios1">
+                            Khác
+                          </label>
+                        </div>
+                      </div>
+                      <button ng-click = "uploadFile()" class="updateAccount__form-btn btn">Lưu thay đổi</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+:root {
+    --while-color: #fff;
+    --black-color: #000;
+    --text-color: #434f53;
+    --primary-color: #47d3a0;
+    --active--color: #333;
+    --header-height: 100px;
+    --slide-height: 858px
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    min-width: 100%;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+.active-item {
+    color: var(--active--color) !important;
+}
+
+.flex--nonWrap {
+    flex-wrap: nowrap;
+}
+
+.page-cell {
+    padding: 0;
+}
+
+.help-block {
+    
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+    to {
+        opacity: 1;
+        top: 100%;
+    }
+  }
+
+  @keyframes hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+  }
+
+
+
+

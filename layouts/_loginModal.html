@@ -1,0 +1,60 @@
+<div class="modal-login modal" id="modal-login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  ng-controller="loginController" ng-hide = "isClose">
+  <div class="login__wrap modal-dialog modal-lg">
+    <div class="login__content modal-content" ng-show = '!isSuccess'>
+      <div class="login__header modal-header">
+        <button type="button" class="login__btn--close close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="login__body modal-body">
+        <img src="./images/logos/header-logo.png" alt="" class="login__logo" />
+        <p class="login__title">ĐĂNG NHẬP</p>
+        <form class="login__form" name="loginForm" ng-submit="checkAccount()">
+          <div class="login__form-group form-group">
+            <input ng-model="userLogin.email" autocomplete="off" type="email" class="login__form-input form-control" ng-class="{'is-invalid': loginForm.email.$invalid && loginForm.email.$dirty || status == 2, 'is-valid': loginForm.email.$valid}"
+              name="email" placeholder="Email" required />
+              <p class="text-left" ng-class="{'invalid-feedback': loginForm.email.$invalid && loginForm.email.$dirty || status == 2, 'is-valid': loginForm.email.$valid}" ng-if="loginForm.email.$invalid && loginForm.email.$dirty || status == 2">Vui lòng nhập email chính xác</p>
+          </div>
+          <div class="login__form-group form-group">
+            <input ng-model="userLogin.password" type="password" class="login__form-input form-control" ng-class="{'is-invalid': loginForm.password.$invalid && loginForm.password.$dirty || status == 1, 'is-valid': loginForm.password.$valid}"
+              name="password" placeholder="Mật khẩu (ít nhất 8 ký tự)" required minlength="8"/>
+            <p class="text-left" ng-class="{'invalid-feedback': loginForm.password.$invalid && loginForm.password.$dirty || status == 1, 'is-valid': loginForm.password.$valid}" ng-if="loginForm.password.$invalid && loginForm.password.$dirty || status == 1">Vui lòng nhập mật khẩu chính xác</p>
+          </div>
+          <div class="login__form-group form-group form-check">
+            <input type="checkbox" class="login__form-check form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu?</label>
+          </div>
+          <span class="login__form-forgetPass"><a href="" data-dismiss="modal" aria-label="Close" ng-click = "changePath()">Bạn quên
+              mật khẩu rồi ư?</a></span>
+          <button type="submit" class="login__form-btn btn btn-primary" ng-disabled="loginForm.emails.$invalid || loginForm.password.$invalid">
+            Đăng nhập
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="welcome modal-content" ng-show = "isSuccess">
+      <div class="login__header modal-header">
+        <button type="button" class="login__btn--close close" data-dismiss="modal" aria-label="Close" ng-click = "closed()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="welcome__body modal-body" >
+        <!-- <p class="login__title">ĐĂNG NHẬP</p> -->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="welcome__body-main">
+              <img src="./images/welcome.gif" alt="" style="width: 100%;">
+              <div class="welcome__body-text">
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <p>Đăng nhập thành công</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>

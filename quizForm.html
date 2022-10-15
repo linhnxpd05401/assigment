@@ -1,0 +1,57 @@
+<div class="section-testing" ng-init = "disabled = false">
+    <div class="testing__wrap container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="testing__card card shadow-sm mb-5 bg-white rounded" ng-show = "!finish">
+            <div class="testing__form-header card-header">
+              {{nameSubject}}
+            </div>
+            <div class="testing__card card-body" ng-init="disableBtn=true">
+              <h4 class="testing__card-subtitle">
+                Question {{id+1}} of {{sumQuestion}}
+              </h4>
+              <p class="testing__card-clock"></p>
+              <p class="testing__card-question">
+                {{ question }}
+              </p>
+              <div class="testing__card-buttonGroup">
+                <label id="radio-container" ng-repeat = "option in options">
+                  {{ option.Text}}
+                  <input type="radio" name="answ" value="{{ option.Id }}" hidden ng-click = "geek(disable)">
+                  <span class="check-node"></span>
+                </label>
+              </div>
+              <button class="testing__card-btn btn" ng-click = "nextQuestion(disable)" ng-show = "(id+1) < sumQuestion" ng-disabled="!disable">
+                Tiếp theo
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+              <button ng-click = "finish = true" class="testing__card-btn btn" ng-show = "(id+1) == sumQuestion">
+                Kết thúc
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="testing__card-congratulation" ng-show = "finish">
+           <div class="row">
+              <div class="col-sm-6">
+                <img src="./images/congratulation.gif" alt="">
+              </div>
+              <div class="col-sm-6">
+                <h4 class="testing__card-congratulation-heading">
+                  Điểm của bạn là:
+                </h4>
+                <div class="testing__card-congratulation-info">
+                  {{count < 10 ? '0' + count : count}}
+                </div>
+                  <div class="testing__card-congratulation-btn">
+                    <a href="#/!" class="testing__card-btn--comback btn">Trang chủ</a>
+                    <a class="testing__card-btn--remake btn" ng-click = "remake()" >Làm lại</a>
+                  </div>
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

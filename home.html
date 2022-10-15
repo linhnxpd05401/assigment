@@ -1,0 +1,130 @@
+<div class="section-slide">
+  <div class="section-slide__wrap container-fluid">
+    <div class="section-slide__content col-sm-8 offset-sm-4">
+      <div class="section-slide__content-text">
+        <h1 class="section-slide__content-heading">
+          Giúp sinh viên dễ dàng hơn trong việc học tập
+        </h1>
+        <p class="section-slide__content-description">
+          Chào mừng đến với website của chúng tôi. Nơi bạn
+          có thể thoả sức học tập và toả sáng.
+        </p>
+      </div>
+      <button class="section-slide__content-btn btn">
+        ĐỌC THÊM
+      </button>
+    </div>
+  </div>
+</div>
+<!-- news -->
+<div id="news" class="section-news">
+  <div class="section-new__wrap container-fluid">
+    <div class="row">
+      <div class="page-cell col-sm-12">
+        <div class="row">
+          <div class="section-new__element col-sm-4">
+            <span class="_element-icon">
+              <img src="./images/logos/mt-0579-home-icons01.png" alt="" class="_element-icon-img" />
+            </span>
+            <h3 class="_element-heading">
+              Học tập dễ dàng với kho tài liệu phong phú.
+            </h3>
+            <p class="_element-description">
+              Với 1000+ tài liệu và video bài giảng. Học
+              viên có thể học tập dễ dàng và tiện dụng. Đảm
+              bào vững vàng kiến thức ở mỗi bài học.
+            </p>
+            <button class="_element-btn btn">
+              READ MORE
+            </button>
+          </div>
+          <div class="section-new__element col-sm-4">
+            <span class="_element-icon">
+              <img src="./images/logos/mt-0579-home-icons02.png" alt="" class="_element-icon-img" />
+            </span>
+            <h3 class="_element-heading">
+              Học tập dễ dàng với kho tài liệu phong phú.
+            </h3>
+            <p class="_element-description">
+              Với 1000+ tài liệu và video bài giảng. Học
+              viên có thể học tập dễ dàng và tiện dụng. Đảm
+              bào vững vàng kiến thức ở mỗi bài học.
+            </p>
+            <button class="_element-btn btn">
+              READ MORE
+            </button>
+          </div>
+          <div class="section-new__element col-sm-4">
+            <span class="_element-icon">
+              <img src="./images/logos/mt-0579-home-icons03.png" alt="" class="_element-icon-img" />
+            </span>
+            <h3 class="_element-heading">
+              Học tập dễ dàng với kho tài liệu phong phú.
+            </h3>
+            <p class="_element-description">
+              Với 1000+ tài liệu và video bài giảng. Học
+              viên có thể học tập dễ dàng và tiện dụng. Đảm
+              bào vững vàng kiến thức ở mỗi bài học.
+            </p>
+            <button class="_element-btn btn">
+              READ MORE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- announcements -->
+<div class="section-announcements">
+  <div class="section-announcements__wrap container-fluid">
+    <div class="row">
+      <div class="page-cell col-sm-12">
+        <div class="announcements__header">
+          <h2 class="announcements__heading">
+            News and Announcements
+          </h2>
+        </div>
+        <div class="announcements__main" ng-repeat = "ann in announcements">
+          <div class="announcements__item" ng-click = "show = !show">
+            <span class="announcements__item-icon">
+              <i class="fa-regular fa-clock"></i>
+            </span>
+            <div class="announcements__item-title">
+              <h3>
+                {{ann.Title}}
+              </h3>
+            </div>
+            <span class="announcements__item-btn">
+              <i class="announcements__item-btn-plus fa-solid fa-plus" ng-class = "{ 'hide' : show}"></i>
+              <i class="announcements__item-btn-minus fa-sharp fa-solid fa-minus" ng-class = "{ 'hide' : !show}"></i>
+            </span>
+          </div>
+          <div class="announcements__item-detail" ng-class = "{ 'hide' : !show}">
+            <div class="row">
+              <div class="_item-detail-img col-sm-4">
+                <img src="./images/{{ann.Image}}">
+              </div>
+              <div class="_item-detail-description col-sm-8">
+                <p>{{ann.Description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- subcribe -->
+<div class="section-subcribe">
+  <div class="section-subcribe__wrap container-fluid">
+    <div class="container-fluid text-center text-white">
+        <h3 class="subcribe__heading">Bản tin</h3>
+        <p class="subcribe__description">Đăng ký bản tin của chúng tôi để nhận tin tức, cập nhật và các nội dung khác qua email</p>
+        <div class="subcribe__form">
+          <input type="email" class="subcribe__form-input" placeholder="Enter your email *">
+          <button class="btn subcribe__form-btn">Đăng ký</button>
+        </div>
+    </div>
+  </div>
+</div>

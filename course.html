@@ -1,0 +1,36 @@
+<div class="section-courses">
+  <div class="courses__wrap container-fluid">
+      <div class="courses__list row" >
+        <div class="col-sm-3" ng-repeat = "sub in displayCourses">
+          <div class="courses__card card">
+            <img src="./images/logos/{{sub.Logo}}" class="courses__card-img card-img-top" alt="...">
+            <div class="courses__card-body text-center card-body">
+              <h5 class="courses__card-title card-title">{{sub.Name}}</h5>
+              <a href="#!testing/{{sub.Id}}/{{sub.Name}}" class="courses__card-btn btn btn-primary">Làm test</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="courses__control">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination courses__control-btns">
+              <li class="page-item">
+                <a class="page-link" href="" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item" ng-repeat = "page in  pageNumbers"><a class="page-link" href="" ng-click = "pagination(page)">{{page+1}}</a></li>
+              <li class="page-item">
+                <a class="page-link" href="" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

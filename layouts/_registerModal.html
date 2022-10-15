@@ -1,0 +1,40 @@
+<div class="modal-register modal fade" id="modal-register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller = "registerController">
+    <div class="register__wrap modal-dialog modal-lg">
+      <div class="register__content modal-content">
+        <div class="register__header modal-header">
+          <button type="button" class="register__btn--close close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="register__body modal-body">
+          <img src="./images/logos/header-logo.png" alt="" class="register__logo">
+          <p class="register__title">Đăng ký</p>
+          <form class="register__form" name="registerForm" ng-submit = "createNewAccount()">
+            <div class="register__form-group form-group">
+              <input ng-model = "fullname" type="text" name="fullname" class="register__form-input form-control" ng-class="{'is-invalid': registerForm.fullname.$invalid && registerForm.fullname.$dirty, 'is-valid': registerForm.fullname.$valid }" placeholder="Họ và tên" required>
+             <p class="text-left" ng-class="{'invalid-feedback': registerForm.fullname.$invalid && registerForm.fullname.$dirty, 'is-valid': registerForm.fullname.$valid}" ng-show="registerForm.fullname.$invalid && registerForm.fullname.$dirty">Vui lòng nhập Họ và tên</p>
+            </div>
+            <div class="register__form-group form-group">
+              <input ng-model = "email" type="email" name="email" class="register__form-input form-control" ng-class="{'is-invalid': (registerForm.email.$invalid && registerForm.email.$dirty) || isOk, 'is-valid': registerForm.email.$valid}" placeholder="Email" required ng-change = "checkAccount()">
+             <p class="text-left" ng-class="{'invalid-feedback': (registerForm.email.$invalid && registerForm.email.$dirty) || isOk, 'is-valid': registerForm.email.$valid}" ng-show="(registerForm.email.$invalid && registerForm.email.$dirty) || isOk">{{ message }}</p>
+            </div>
+            <div class="register__form-group form-group">
+              <input ng-model="password" type="password" class="register__form-input form-control" ng-class="{'is-invalid': registerForm.password.$invalid && registerForm.password.$dirty, 'is-valid': registerForm.password.$valid}"
+              name="password" placeholder="Mật khẩu (ít nhất 8 ký tự)" required minlength="8">
+              <p class="text-left" ng-class="{'invalid-feedback': registerForm.password.$invalid && registerForm.password.$dirty, 'is-valid': registerForm.password.$valid}" ng-show="registerForm.password.$invalid && registerForm.password.$dirty">Vui lòng nhập mật khẩu chính xác</p>
+            </div>
+            <div class="register__form-group form-group">
+              <input ng-model="rePassword" type="password" class="register__form-input form-control" ng-class="{'is-invalid': !isSame && registerForm.rePassword.$dirty, 'is-valid': isSame}"
+              name="rePassword" placeholder="Nhập lại mật khẩu" required minlength="8" ng-change = "checkPassConfirm(rePassword)">
+              <p class="text-left" ng-class="{'invalid-feedback': !isSame && registerForm.rePassword.$dirty, 'is-valid': isSame}" ng-show="!isSame && registerForm.rePassword.$dirty">Mật khẩu xác nhận không khớp</p>
+            </div>
+            <!-- <div class="register__form-group form-group form-check">
+              <input type="checkbox" class="register__form-check form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu?</label>
+            </div> -->
+            <button type="submit" class="register__form-btn btn btn-primary">Đăng nhập</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,56 @@
+{
+  "listUsers": [
+    {
+      "id": "1",
+      "password": "123456789",
+      "email": "linh@gmail.com",
+      "fullname": "Linh Lê",
+      "gender": "nữ",
+      "phone": "0819515456",
+      "birthday": "08-05-1997",
+      "address": "Quảng Nam",
+      "note": "dfdfdsfdsfdsfds",
+      "marks": "0",
+      "avatar": "boss4.jpg"
+    },
+    {
+      "id": "2",
+      "password": "123456",
+      "email": "linhnxpd05401@fpt.edu.vn",
+      "fullname": "Nguyễn Văn Tèo",
+      "gender": "nam",
+      "phone": "0819515456",
+      "birthday": "1999-02-08",
+      "address": "Quang Binh",
+      "note": "dfdfdsfdsfdsfds",
+      "marks": "0",
+      "avatar": "boss2.jpg"
+    },
+    {
+      "id": "3",
+      "password": "123456",
+      "email": "fggfdg",
+      "fullname": "Nguyễn Văn Tèo",
+      "gender": "nam",
+      "phone": "0819515456",
+      "birthday": "1999-02-08",
+      "address": "Quang Binh",
+      "note": "dfdfdsfdsfdsfds",
+      "marks": "0",
+      "avatar": "boss3.jpg"
+    },
+    {
+      "password": "12345678",
+      "email": "nxlinh.12b10.pdl@gmail.com",
+      "fullname": "Linh Nguyễn",
+      "gender": "",
+      "phone": "",
+      "birthday": "",
+      "address": "",
+      "note": "",
+      "marks": 0,
+      "avatar": "",
+      "id": "mvEmTfx"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<div class="section-changePass">
+  <div class="changePass__wrap container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="changePass__form">
+          <div class="changePass__form-header">
+            <h3 class="change__form-heading">Đổi mật khẩu</h3>
+          </div>
+          <div class="changePass__form-body">
+            <form name = "changePassForm">
+              <div class="changePass__form-group  form-group">
+                <input ng-model="userPass.oldPass" type="password" class="changePass__form-control form-control" ng-class="{'is-invalid': changePassForm.oldPass.$invalid && changePassForm.oldPass.$dirty || isOldPass == false, 'is-valid': changePassForm.oldPass.$valid && isOldPass == true}"
+              name="oldPass" placeholder="Mật khẩu cũ" required minlength="8"/>
+                <p class="text-left" ng-class="{'invalid-feedback': changePassForm.oldPass.$invalid && changePassForm.oldPass.$dirty || isOldPass == false, 'is-valid': changePassForm.oldPass.$valid}" ng-show="changePassForm.oldPass.$invalid && changePassForm.oldPass.$dirty || isOldPass == false">{{ message }}</p>
+              </div>
+              <div class="changePass__form-group form-group">
+                <input ng-model="userPass.newPass" type="password" class="changePass__form-control form-control" ng-class="{'is-invalid': changePassForm.newPass.$invalid && changePassForm.newPass.$dirty || isDifficult == false, 'is-valid': changePassForm.newPass.$valid}"
+                name="newPass" placeholder="Mật khẩu mới" required minlength="8"/>
+                  <p class="text-left" ng-class="{'invalid-feedback': changePassForm.newPass.$invalid && changePassForm.newPass.$dirty || isDifficult == false, 'is-valid': changePassForm.newPass.$valid}" ng-show="changePassForm.newPass.$invalid && changePassForm.newPass.$dirty || isDifficult == false">{{ message }}</p>
+              </div>
+              <div class="changePass__form-group  form-group">
+                <input ng-model="userPass.rePass" type="password" class="changePass__form-control form-control" ng-class="{'is-invalid': isSame == false, 'is-valid': isSame == true && changePassForm.newPass.$dirty}"
+                name="rePass" placeholder="Nhập lại mật khẩu"/>
+                  <p class="text-left" ng-class="{'invalid-feedback': isSame == false, 'is-valid': isSame == true}" ng-show="isSame == false">{{ message }}</p>
+              </div>
+              <div class="changePass__form-group  form-group">
+                <a href="#!forgetPass" class="changePass__form-link">Bạn quên mật khẩu của mình rồi ư?</a>
+              </div>
+              <button ng-click = "checkInput()" class="changePass__form-btn btn">Đổi mật khẩu</button>
+            </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="confirm">
+  <div></div>
+  <div>
+    <div id="confirmMessage">Confirm text</div>
+    <div>
+      <input id="confirmYes" type="button" value="Yes" />
+      <input id="confirmNo" type="button" value="No" />
+    </div>
+  </div>
+</div>
