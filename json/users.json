@@ -43,13 +43,13 @@
       "password": "12345678",
       "email": "nxlinh.12b10.pdl@gmail.com",
       "fullname": "Linh Nguyễn",
-      "gender": "",
-      "phone": "",
-      "birthday": "",
-      "address": "",
-      "note": "",
+      "gender": "nam",
+      "phone": "0819515456",
+      "birthday": "08-02-1998",
+      "address": "Quảng Bình",
+      "note": "dfsdfdsfdsfdsfdsfds",
       "marks": 0,
-      "avatar": "",
+      "avatar": "boss1.jpg",
       "id": "mvEmTfx"
     }
   ]

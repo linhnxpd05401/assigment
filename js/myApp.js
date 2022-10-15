@@ -1,7 +1,5 @@
 var app = angular.module("myApp", ["ngRoute"]);
 
-
-
 app.config(function ($routeProvider) {
   $routeProvider
     .when("/", {
@@ -185,6 +183,8 @@ app.controller("homeController", function ($scope, $http) {
 
 
 app.controller('testingController', function ($scope, $http, $routeParams, quizFactory) {
+  $scope.minutes = 20;
+  $scope.seconds = 00;
   $http.get('./db/Quizs/' + $routeParams.id + '.js').then(function (respon) {
     quizFactory.question = respon.data;
   });
@@ -197,8 +197,6 @@ app.controller("loginController", function ($scope, $rootScope, dataService) {
   $scope.isSuccess = false;
   $scope.isClose = false;
   $scope.currentUserInfo = {};
-
-  $scope.regex = "/[0-9]/"
 
   dataService.getData().then(function (response) {
     $scope.users = response.data;
@@ -225,7 +223,7 @@ app.controller("loginController", function ($scope, $rootScope, dataService) {
       if ($scope.userLogin.email === $scope.users[i].email) {
         if ($scope.userLogin.password === $scope.users[i].password) {
           localStorage.setItem("currentUser", JSON.stringify($scope.userLogin));
-          localStorage.setItem('currenrUserInfo',JSON.stringify($scope.currentUserInfo) );
+          localStorage.setItem('currenrUserInfo',JSON.stringify($scope.users[i]));
           $scope.isSuccess = true;
         } else {
           $scope.status = 1;
@@ -357,7 +355,7 @@ app.controller('updateAccountController', function($scope, $filter, dataService)
       phone: $scope.phone,
       birthday: $scope.birthday,
       address : $scope.address,
-      note: $scope.note,
+      note: $scope.notes,
       marks: $scope.currentUserInfo.marks,
       avatar: $scope.imgName
       }

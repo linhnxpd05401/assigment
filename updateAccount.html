@@ -48,7 +48,7 @@
                         <input ng-model = "lastName" class="form-control" type="text" placeholder="{{ lastName }}">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="phone" ng-pattern="regex" class="form-control" ng-class="{'is-invalid': updateForm.phone.$error.pattern, 'is-valid': updateForm.phone.$valid}" placeholder="{{ currentUserInfo.phone}}" required>
+                        <input type="text" ng-model = "phone" name="phone" ng-pattern="regex" class="form-control" ng-class="{'is-invalid': updateForm.phone.$error.pattern, 'is-valid': updateForm.phone.$valid}" placeholder="{{ currentUserInfo.phone }}" required>
                         <p class="text-left" ng-class="{'invalid-feedback': updateForm.phone.$error.pattern, 'is-valid': updateForm.phone.$valid}" ng-show="updateForm.phone.$error.pattern">Số điện thoại sai định dạng</p>
                       </div>
                       <div class="form-group">
