@@ -44,13 +44,40 @@ app.config(function ($routeProvider) {
     });
 });
 
-app.directive("quizForm", function (quizFactory) {
+app.directive("quizForm", function (quizFactory, $interval, dataService) {
   return {
     restrict: 'AE',
     scope: {},
     templateUrl: "./quizForm.html",
     link: function (scope, element, attrs) {
       scope.id = 0;
+      scope.minutes = 1;
+      scope.seconds = 0;
+      scope.finish = false;
+      
+      scope.displayMinutes = scope.minutes < 10 ? "0" + scope.minutes : scope.minutes;
+      scope.displaySeconds = scope.seconds < 10 ? "0" + scope.seconds : scope.seconds;
+      scope.startCount = function() {
+        scope.seconds--;
+        if(scope.seconds === -1) {
+        scope.minutes -= 1;
+        scope.seconds = 59;
+        }
+
+        scope.displayMinutes = scope.minutes < 10 ? "0" + scope.minutes : scope.minutes;
+        scope.displaySeconds = scope.seconds < 10 ? "0" + scope.seconds : scope.seconds;
+        if(scope.minutes === 0 && scope.seconds === 0) {
+          alert('Hết giờ');
+          scope.stopCountdown();
+        }
+      }
+      
+      scope.stopCountdown = function() {
+        $interval.cancel(myTimeout);
+        scope.finish = true;
+        alert('stop');
+      }
+      var myTimeout = $interval(scope.startCount, 1000);
 
 
       scope.start = function () {
@@ -62,12 +89,28 @@ app.directive("quizForm", function (quizFactory) {
       };
 
       scope.remake = function () {
+        scope.saveTheResult(scope.count);
         scope.finish = !scope.finish;
+        scope.minutes = 1;
+        scope.seconds = 0;
         scope.id = 0;
         scope.count = 0;
+        // myTimeout = $interval(scope.startCount, 1000);
         scope.start();
       }
 
+      scope.goHome = function() {
+        scope.saveTheResult(scope.count);
+        location = "#/!";
+      }
+
+      scope.saveTheResult = function (result) {
+        scope.currentInfo = JSON.parse(localStorage.getItem("currenrUserInfo"))
+        dataService.updateData(scope.currentInfo.id, {"marks" :  result}).then(function (respon) {
+        }, function (err) {
+          alert("failed");
+        })
+      }
 
       scope.getQuestion = function () {
         let quiz = quizFactory.getQuestion();
@@ -92,10 +135,6 @@ app.directive("quizForm", function (quizFactory) {
         }
 
       };
-
-      // scope.getMark = () => {
-      //   alert(scope.count);
-      // }
 
       scope.nextQuestion = function (disable) {
         scope.id++;
@@ -181,10 +220,7 @@ app.controller("homeController", function ($scope, $http) {
   });
 });
 
-
 app.controller('testingController', function ($scope, $http, $routeParams, quizFactory) {
-  $scope.minutes = 20;
-  $scope.seconds = 00;
   $http.get('./db/Quizs/' + $routeParams.id + '.js').then(function (respon) {
     quizFactory.question = respon.data;
   });

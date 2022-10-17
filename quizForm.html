@@ -2,7 +2,7 @@
     <div class="testing__wrap container-fluid">
       <div class="row">
         <div class="col-sm-12">
-          <div class="testing__card card shadow-sm mb-5 bg-white rounded" ng-show = "!finish">
+          <div class="testing__card card shadow-sm mb-5 bg-white rounded" ng-show = "finish == false">
             <div class="testing__form-header card-header">
               {{nameSubject}}
             </div>
@@ -10,7 +10,7 @@
               <h4 class="testing__card-subtitle">
                 Question {{id+1}} of {{sumQuestion}}
               </h4>
-              <p class="testing__card-clock">{{ minutes }}</p>
+              <p class="testing__card-clock" >{{ displayMinutes }} : {{ displaySeconds }}</p>
               <p class="testing__card-question">
                 {{ question }}
               </p>
@@ -25,14 +25,14 @@
                 Tiếp theo
                 <i class="fa-solid fa-angle-right"></i>
               </button>
-              <button ng-click = "finish = true" class="testing__card-btn btn" ng-show = "(id+1) == sumQuestion">
+              <button ng-click = "stopCountdown()" class="testing__card-btn btn" ng-show = "(id+1) == sumQuestion">
                 Kết thúc
                 <i class="fa-solid fa-angle-right"></i>
               </button>
             </div>
           </div>
 
-          <div class="testing__card-congratulation" ng-show = "finish">
+          <div class="testing__card-congratulation" ng-show = "finish == true">
            <div class="row">
               <div class="col-sm-6">
                 <img src="./images/congratulation.gif" alt="">
