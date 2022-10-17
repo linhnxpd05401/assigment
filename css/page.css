@@ -1,5 +1,4 @@
 
-
 /* header=nav */
 .header {
     padding: 0;
@@ -135,31 +134,20 @@
 
 /* slide */
 .section-slide {    
+    
+}
+
+.section-slide__img {
+    position: relative;
+    width: 100%;
     background-image: url(../images/slider.jpg);
     background-position: center top;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
-    height: var(--slide-height);
     float: none;
     list-style: none;
-    height: var(--slide-height);
+    height: 677px;
     z-index: 0;
-}
-
-.section-slide__wrap {
-    position: relative;
-    min-width: 1200px;
-    padding: 0 15px;
-    height: 100%;
-}
-
-.section-slide__content {
-    position: absolute;
-    text-align: right;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-left: 46px;
-    padding-right: 46px;
 }
 
 .section-slide__content-heading {
@@ -672,7 +660,7 @@ border-bottom: 1px solid #e5e5e5;
 /* courses */
 
 .section-courses {
-    padding: 95px;
+    padding: 95px 0;
     background-color: #f8f8f8;
 
 }
@@ -690,7 +678,7 @@ border-bottom: 1px solid #e5e5e5;
     overflow: hidden;
     border-radius: 15px;
     margin-bottom: 24px;
-    min-height: 480px;
+    min-height: 520px;
 
 }
 
@@ -1138,6 +1126,10 @@ border-bottom: 1px solid #e5e5e5;
     color: #333;
 }
 
+.info__item {
+    margin-bottom: 46px;
+}
+
 
 /* modal register */
 
@@ -1368,8 +1360,4 @@ border-bottom: 1px solid #e5e5e5;
   .confirm > div:last-of-type div:last-of-type {
     text-align: right;
   }
-
-
-
-
 

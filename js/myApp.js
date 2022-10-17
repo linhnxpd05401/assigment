@@ -27,6 +27,7 @@ app.config(function ($routeProvider) {
 
     .when("/forgetPass", {
       templateUrl: "./forgetPass.html",
+      controller: "forgetPassController"
     })
 
     .when("/changePass/:id/:password", {
@@ -461,6 +462,10 @@ app.controller('registerController', function($scope, dataService) {
       console.log($scope.isOk);
     }
   }
+});
+
+app.controller('forgetPassController', function($scope) {
+  
 });
 
 
