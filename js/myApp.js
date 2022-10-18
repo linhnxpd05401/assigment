@@ -55,7 +55,6 @@ app.directive("quizForm", function (quizFactory, $interval, dataService) {
       scope.minutes = 1;
       scope.seconds = 0;
       scope.finish = false;
-      
       scope.displayMinutes = scope.minutes < 10 ? "0" + scope.minutes : scope.minutes;
       scope.displaySeconds = scope.seconds < 10 ? "0" + scope.seconds : scope.seconds;
       scope.startCount = function() {
@@ -74,8 +73,8 @@ app.directive("quizForm", function (quizFactory, $interval, dataService) {
       }
       
       scope.stopCountdown = function() {
+        scope.finish = ! scope.finish;
         $interval.cancel(myTimeout);
-        scope.finish = true;
         alert('stop');
       }
       var myTimeout = $interval(scope.startCount, 1000);
@@ -91,7 +90,6 @@ app.directive("quizForm", function (quizFactory, $interval, dataService) {
 
       scope.remake = function () {
         scope.saveTheResult(scope.count);
-        scope.finish = !scope.finish;
         scope.minutes = 1;
         scope.seconds = 0;
         scope.id = 0;
@@ -209,7 +207,6 @@ app.controller("coursesController", function ($scope, $http) {
   $scope.pagination = function (index) {
     console.log($scope.listSubDisplay.slice(index, index + 1));
     $scope.displayCourses = ($scope.listSubDisplay.slice(index, index + 1))[0];
-
   }
 });
 
@@ -313,6 +310,7 @@ app.controller("headerController", function ($scope, $rootScope) {
     localStorage.clear();
     $scope.isLogin = !$scope.isLogin;
     location = "#/!";
+    location.reload();
   }
 });
 

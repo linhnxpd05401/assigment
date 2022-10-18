@@ -2,7 +2,7 @@
   "listUsers": [
     {
       "id": "1",
-      "password": "123456789",
+      "password": "12345678",
       "email": "linh@gmail.com",
       "fullname": "Linh Lê",
       "gender": "nữ",
@@ -10,7 +10,7 @@
       "birthday": "08-05-1997",
       "address": "Quảng Nam",
       "note": "dfdfdsfdsfdsfds",
-      "marks": "0",
+      "marks": 1,
       "avatar": "boss4.jpg"
     },
     {
