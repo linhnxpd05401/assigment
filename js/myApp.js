@@ -280,6 +280,11 @@ app.controller("headerController", function ($scope, $rootScope) {
   $scope.userLogin = {};
   $scope.currentUserInfo = {};
   $scope.isLogin = false;
+  $scope.show = false;
+  
+  $scope.isShow = function() {
+    $scope.show = !$scope.show;
+  }
 
   $scope.checkUser = function () {
     $scope.$on('listUser', function (event, args) {
@@ -296,7 +301,6 @@ app.controller("headerController", function ($scope, $rootScope) {
       }
     });
   }
-
 
   $scope.checkLogin = function () {
     if (!$scope.isLogin) {

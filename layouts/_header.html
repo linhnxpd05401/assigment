@@ -4,40 +4,39 @@
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <nav class="header__nav navbar navbar-expand-lg">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-            <div class="row" style="align-items: center">
+            <div class="row header__nav-wrap" style="align-items: center">
               <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
                 <div class="header__nav-home">
                   <a class="header__nav-home-band navbar-brand" href="#/!">
                     <img src="./images/logos/header-logo.png" alt="" class="brand-logo" />
                     Training Online
                   </a>
-                  <button class="header__nav-btn navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                  <button class="header__nav-btn navbar-toggler" type="button" ng-click="isShow()">
                     <i class="header__nav-btn-icon fa-sharp fa-solid fa-bars"></i>
                   </button>
                 </div>
               </div>
               <div class="col-xl-9 col-lg-9 col-md-10">
-                <div class="header__nav-menu collapse navbar-collapse col-xl-12 col-lg-12 col-md-12" id="navbarNavDropdown">
+                <div class="header__nav-menu collapse navbar-collapse col-xl-12 col-lg-12 col-md-12"
+                  ng-class="{'show' : show}">
                   <div class="row col-sm-12 flex--nonWrap">
                     <ul class="header__nav-menu-list navbar-nav col-xl-12 col-lg-12 col-md-12">
-                      <li class="nav-item">
+                      <li class="nav-item" ng-click="isShow()">
                         <a class="nav-link active-item" href="#/!">Trang chủ<span class="sr-only">(current)</span></a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item" ng-click="isShow()">
                         <a class="nav-link" href="#!description">Giới thiệu</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item" ng-click="isShow()">
                         <a class="nav-link" href="#!contact">Liên hệ</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item" ng-click="isShow()">
                         <a class="nav-link" ng-click="checkLogin()">Khoá học</a>
                       </li>
                       <!-- <li class="nav-item">
                                   <a class="nav-link" href="#">Hỏi đáp</a>
                                 </li> -->
-                      <li class="nav-item hoverdrop">
+                      <li class="nav-item hoverdrop" ng-click="fadeIn = !fadeIn">
                         <a class="nav-link" href="#" ng-show="!isLogin">
                           Tài khoản
                           <i class="fa-solid fa-caret-down"></i>
@@ -48,16 +47,15 @@
                             style="background-image: url(./images/logos/{{currentUserInfo.avatar}});"></div>
                           {{ currentUserInfo.fullname }}
                         </a>
-                        <div class="hoverdrop-menu">
-                          <a class="hoverdrop-item" href="" data-toggle="modal" data-target="#modal-register"
-                            ng-show="!isLogin">Đăng ký</a>
-                          <a class="hoverdrop-item" href="" data-toggle="modal" data-target="#modal-login"
-                            ng-show="!isLogin">Đăng nhập</a>
+                        <div class="hoverdrop-menu" ng-show="fadeIn">
+                          <a class="hoverdrop-item" href="" ng-show="!isLogin" ng-click="isShow()">Đăng ký</a>
+                          <a class="hoverdrop-item" href="" ng-show="!isLogin" ng-click="isShow()">Đăng nhập</a>
                           <a class="hoverdrop-item" href="" ng-click="logout()" ng-show="isLogin">Đăng xuất</a>
                           <a class="hoverdrop-item"
-                            href="#!changePass/{{ currentUserInfo.id }}/{{ currentUserInfo.password }}" ng-show="isLogin">Đổi
+                            href="#!changePass/{{ currentUserInfo.id }}/{{ currentUserInfo.password }}"
+                            ng-show="isLogin" ng-click="isShow()">Đổi
                             mật khẩu</a>
-                          <a class="hoverdrop-item" href="#!updateAccount" ng-show="isLogin">Cập nhật tài khoản</a>
+                          <a class="hoverdrop-item" href="#!updateAccount" ng-show="isLogin" ng-click="isShow()">Cập nhật tài khoản</a>
                         </div>
                       </li>
                     </ul>

@@ -63,12 +63,9 @@
     position: relative;
 }
 
-.hoverdrop:hover .hoverdrop-menu {
-    display: flex;
-}
 
 .hoverdrop-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: absolute;
     background-color: #fff;
@@ -133,10 +130,6 @@
 }
 
 /* slide */
-.section-slide {    
-    
-}
-
 .section-slide__img {
     position: relative;
     width: 100%;

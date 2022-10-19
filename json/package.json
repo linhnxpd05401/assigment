@@ -4,11 +4,12 @@
   "description": "fake spi",
   "main": "index.js",
   "scripts": {
-  "start": "json-server --watch users.json"
+    "start": "json-server --watch users.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "ngrok": "^4.3.3"
   }
 }
